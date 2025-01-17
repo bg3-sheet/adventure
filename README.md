@@ -30,18 +30,18 @@
    npm install
    ```
 2. 컴퓨터에 git이 있는 경우
-```
-git clone https://github.com/bg3-sheet/adventure.git
-cd adventure
-npm install
-```
+   ```
+   git clone https://github.com/bg3-sheet/adventure.git
+   cd adventure
+   npm install
+   ```
 
 <br>
 
 ### Firebase 프로젝트 설정
 
 **1. Firebase 콘솔 접속 및 프로젝트 생성**
-- Firebase 호스팅 시작하는 법을 구글링 후 따라하세요.
+   Firebase 호스팅 시작하는 법을 구글링 후 따라하세요.
 
 <br>
 
@@ -68,17 +68,17 @@ npm install
    6. [이곳](https://circleboom.com/twitter-management-tool/twitter-search-tool/twitter-id-finder)에서 트위터 계정별 고유 숫자 ID 확인
    7. "규칙" 탭으로 이동해서 아래 규칙 붙여넣기 (트위터 숫자 ID 교체, 작은 따옴표 유지):
 
-   ```
-   rules_version = '2';
-
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       match /{document=**} {
-         allow read: if true;
-         allow write: if request.auth != null && (request.auth.token.firebase.identities['twitter.com'][0] == '트위터 숫자 ID' || request.auth.token.firebase.identities['twitter.com'][0] == '트위터 숫자 ID');
-       }
-     }
-   }
+      ```
+      rules_version = '2';
+   
+      service cloud.firestore {
+        match /databases/{database}/documents {
+          match /{document=**} {
+            allow read: if true;
+            allow write: if request.auth != null && (request.auth.token.firebase.identities['twitter.com'][0] == '트위터 숫자 ID' || request.auth.token.firebase.identities['twitter.com'][0] == '트위터 숫자 ID');
+          }
+        }
+      }
    ```
 
 <br>
@@ -99,14 +99,14 @@ npm install
 
    1. [Twitter 개발자 포털](https://developer.twitter.com/en/portal/petition/essential/basic-info)에 접속
    2. "일반" 유형의 개발자 계정 신청
-   3. 사용 목적 작성:
+   3. 사용 목적 작성 예시:
 
-   ```
-   With Twitter's data and API, I'm going to:
-   - authenticate my site's users to verify whether they have rights to use our service.
-   - provide a really simple post service which only supports write and update for those in our site's list.
-   No tweet is uploaded via our service. The API usage is restricted to authentication.
-   ```
+      ```
+      With Twitter's data and API, I'm going to:
+      - authenticate my site's users to verify whether they have rights to use our service.
+      - provide a really simple post service which only supports write and update for those in our site's list.
+      No tweet is uploaded via our service. The API usage is restricted to authentication.
+      ```
 
 **2. Twitter 개발자 설정**
 
@@ -170,4 +170,4 @@ npm install
 
 > 고생하셨습니다!
 > 
-> **각종 문의, 버그 제보: 트위터 멘션/DM**
+> **모든 문의, 버그 제보: Issues / (트위터) 멘션, DM**
