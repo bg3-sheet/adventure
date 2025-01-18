@@ -58,12 +58,14 @@ function ProfileImage({
 
         setUid(tmp);
 
-        const loginCharacter = tmp === P1_ID ? P1_NAME : P2_NAME;
+        if (P1_ID !== P2_ID) {
+          const loginCharacter = tmp === P1_ID ? P1_NAME : P2_NAME;
 
-        if (n !== loginCharacter) {
-          if (loginCharacter === P2_NAME)
-            throw new Error(P1_LOGIN ? P1_LOGIN : '접근 권한이 없습니다.');
-          else throw new Error(P2_LOGIN ? P2_LOGIN : '접근 권한이 없습니다.');
+          if (n !== loginCharacter) {
+            if (loginCharacter === P2_NAME)
+              throw new Error(P1_LOGIN ? P1_LOGIN : '접근 권한이 없습니다.');
+            else throw new Error(P2_LOGIN ? P2_LOGIN : '접근 권한이 없습니다.');
+          }
         }
       });
     } catch (e: any) {
@@ -78,12 +80,14 @@ function ProfileImage({
     if (uid !== P1_ID && uid !== P2_ID)
       throw new Error('접근 권한이 없습니다.');
 
-    const loginCharacter = uid === P1_ID ? P1_NAME : P2_NAME;
+    if (P1_ID !== P2_ID) {
+      const loginCharacter = uid === P1_ID ? P1_NAME : P2_NAME;
 
-    if (n !== loginCharacter) {
-      if (loginCharacter === P2_NAME)
-        throw new Error(m1 ? m1 : '접근 권한이 없습니다.');
-      else throw new Error(m2 ? m2 : '접근 권한이 없습니다.');
+      if (n !== loginCharacter) {
+        if (loginCharacter === P2_NAME)
+          throw new Error(m1 ? m1 : '접근 권한이 없습니다.');
+        else throw new Error(m2 ? m2 : '접근 권한이 없습니다.');
+      }
     }
   };
 
