@@ -91,9 +91,9 @@ function ProfileImage({
     }
   };
 
-  const editApproval = async (name: string) => {
+  const editApproval = async (n: string) => {
     try {
-      validateRequest(name, P1_APPROVAL, P2_APPROVAL);
+      validateRequest(n, P1_APPROVAL, P2_APPROVAL);
 
       const vv = parseInt(v.trim());
 
@@ -103,7 +103,7 @@ function ProfileImage({
       const approvalRef = doc(db, 'approvals', 'values');
 
       await updateDoc(approvalRef, {
-        [uid === P1_ID ? P1 : P2]: vv,
+        [n === P1_NAME ? P1 : P2]: vv,
       });
 
       setValue(vv);
@@ -115,9 +115,9 @@ function ProfileImage({
     }
   };
 
-  const addInspiration = async (name: string) => {
+  const addInspiration = async (n: string) => {
     try {
-      validateRequest(name, P1_INSPIRATION, P2_INSPIRATION);
+      validateRequest(n, P1_INSPIRATION, P2_INSPIRATION);
 
       if (!background.trim() || !event.trim())
         throw new Error('배경과 사건을 모두 입력해야 합니다.');
@@ -125,7 +125,7 @@ function ProfileImage({
       const doc = await addDoc(
         collection(
           db,
-          uid === P1_ID ? `${P1}Inspirations` : `${P2}Inspirations`,
+          n === P1_NAME ? `${P1}Inspirations` : `${P2}Inspirations`,
         ),
         {background, event, createdAt: new Date()},
       );
