@@ -4,9 +4,10 @@ import {useEffect, useState} from 'react';
 import {IInspiration} from '@/models/profile.model';
 import TitleBox from '@/components/molecules/titleBox';
 
-// 가이드: 'p1.jpg'를 P1 프로필 이미지명과 확장자로 변경
+// 가이드: 'p1.jpg'를 P1 프로필 이미지명(대소문자 무관, 한 단어)과 확장자(소문자)로 변경 (예: astarionProfile.jpg, AktmxkflDhs123.png)
 import p1 from '@/assets/images/p1.jpg';
-// 가이드: 'p2.png'를 P2 프로필 이미지명과 확장자로 변경
+
+// 가이드: 'p2.png'를 P2 프로필 이미지명(대소문자 무관, 한 단어)과 확장자(소문자)로 변경 (예: astarionProfile.jpg, AktmxkflDhs123.png)
 import p2 from '@/assets/images/p2.png';
 
 function Home() {

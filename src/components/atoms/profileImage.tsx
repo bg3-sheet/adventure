@@ -59,6 +59,7 @@ function ProfileImage({
         setUid(tmp);
 
         if (P1_ID !== P2_ID) {
+          console.log(`${P1_ID} ${P2_ID}`);
           const loginCharacter = tmp === P1_ID ? P1_NAME : P2_NAME;
 
           if (n !== loginCharacter) {
