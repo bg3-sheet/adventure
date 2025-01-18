@@ -12,8 +12,6 @@ import {Input} from '@/components/ui/input';
 import {useState} from 'react';
 import PoDialog from '@/components/organisms/poDialog';
 
-// 가이드: 영문 이름을 쓸 경우, KR을 EN으로 모두 변경 (Home.tsx 파일과 동일)
-
 function ProfileImage({
   image,
   alt,
@@ -29,8 +27,8 @@ function ProfileImage({
   const P1 = import.meta.env.VITE_APP_P1;
   const P2 = import.meta.env.VITE_APP_P2;
 
-  const P1_NAME_KR = import.meta.env.VITE_APP_P1_KR;
-  const P2_NAME_KR = import.meta.env.VITE_APP_P2_KR;
+  const P1_NAME = import.meta.env.VITE_APP_P1_NAME;
+  const P2_NAME = import.meta.env.VITE_APP_P2_NAME;
 
   const P1_LOGIN = import.meta.env.VITE_APP_P1_LOGIN;
   const P2_LOGIN = import.meta.env.VITE_APP_P2_LOGIN;
@@ -60,10 +58,10 @@ function ProfileImage({
 
         setUid(tmp);
 
-        const loginCharacter = tmp === P1_ID ? P1_NAME_KR : P2_NAME_KR;
+        const loginCharacter = tmp === P1_ID ? P1_NAME : P2_NAME;
 
         if (n !== loginCharacter) {
-          if (loginCharacter === P2_NAME_KR)
+          if (loginCharacter === P2_NAME)
             throw new Error(P1_LOGIN ? P1_LOGIN : '접근 권한이 없습니다.');
           else throw new Error(P2_LOGIN ? P2_LOGIN : '접근 권한이 없습니다.');
         }
@@ -80,10 +78,10 @@ function ProfileImage({
     if (uid !== P1_ID && uid !== P2_ID)
       throw new Error('접근 권한이 없습니다.');
 
-    const loginCharacter = uid === P1_ID ? P1_NAME_KR : P2_NAME_KR;
+    const loginCharacter = uid === P1_ID ? P1_NAME : P2_NAME;
 
     if (n !== loginCharacter) {
-      if (loginCharacter === P2_NAME_KR)
+      if (loginCharacter === P2_NAME)
         throw new Error(m1 ? m1 : '접근 권한이 없습니다.');
       else throw new Error(m2 ? m2 : '접근 권한이 없습니다.');
     }

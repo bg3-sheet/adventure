@@ -9,8 +9,6 @@ import p1 from '@/assets/images/p1.jpg';
 // 가이드: 'p2.png'를 P2 프로필 이미지명과 확장자로 변경
 import p2 from '@/assets/images/p2.png';
 
-// 가이드: 영문 이름을 쓸 경우, KR을 EN으로 모두 변경 (profileImage.tsx 파일과 동일)
-
 function Home() {
   const TITLE = import.meta.env.VITE_APP_TITLE;
   const SUBTITLE = import.meta.env.VITE_APP_SUBTITLE;
@@ -18,11 +16,11 @@ function Home() {
   const P1 = import.meta.env.VITE_APP_P1;
   const P2 = import.meta.env.VITE_APP_P2;
 
-  const P1_NAME_KR = import.meta.env.VITE_APP_P1_KR;
-  const P2_NAME_KR = import.meta.env.VITE_APP_P2_KR;
+  const P1_NAME = import.meta.env.VITE_APP_P1_NAME;
+  const P2_NAME = import.meta.env.VITE_APP_P2_NAME;
 
-  const P1_NAME_ALIAS = import.meta.env.VITE_APP_P1_ALIAS;
-  const P2_NAME_ALIAS = import.meta.env.VITE_APP_P2_ALIAS;
+  const P1_ALIAS = import.meta.env.VITE_APP_P1_ALIAS;
+  const P2_ALIAS = import.meta.env.VITE_APP_P2_ALIAS;
 
   const [p1Approval, setP1Approval] = useState(0);
   const [p2Approval, setP2Approval] = useState(0);
@@ -42,9 +40,9 @@ function Home() {
       <div className="flex flex-row flex-wrap justify-center gap-x-6 gap-y-4">
         <Profile
           image={p1}
-          alt={`${P1_NAME_KR} 프로필 사진`}
-          alias={P1_NAME_ALIAS}
-          name={P1_NAME_KR}
+          alt={`${P1_NAME} 프로필 사진`}
+          alias={P1_ALIAS}
+          name={P1_NAME}
           value={p1Approval}
           setValue={setP1Approval}
           list={p1List}
@@ -52,9 +50,9 @@ function Home() {
         />
         <Profile
           image={p2}
-          alt={`${P2_NAME_KR} 프로필 사진`}
-          alias={P2_NAME_ALIAS}
-          name={P2_NAME_KR}
+          alt={`${P2_NAME} 프로필 사진`}
+          alias={P2_ALIAS}
+          name={P2_NAME}
           value={p2Approval}
           setValue={setP2Approval}
           list={p2List}
